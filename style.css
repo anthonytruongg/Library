@@ -1,11 +1,12 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: gray;
+    background-color: rgb(46, 16, 85);
     margin: 0;
     padding: 0;
 }
 .container {
     display: grid;
+    grid-template-rows: 1fr 7fr 1fr;
     border: 1px solid black;
 }
 /*------------------------------------------------------*/
@@ -13,9 +14,10 @@ body {
     display: grid;
     grid-template-columns: 200px 200px 200px;
     border: 1px solid black;
-    background-color: rgb(109, 164, 212);
+    background-color: rgb(34, 8, 26);
     align-items: center;
     justify-content: center;
+    color: white;
 }
 .logo {
     font-size: 56px;
@@ -37,7 +39,6 @@ body {
 .mainContainer {
     padding: 20px;
     display: grid;
-    grid-template-rows: 1fr 2fr;
     align-items: center;
     justify-content: center;
     
@@ -50,18 +51,17 @@ body {
     box-shadow: 0px 0px 5px black;
     padding: 20px;
     font-size: 26px;
+    margin: 20px;
 }
 /*------------------------------------------------------*/
 .libraryGrid {
-    grid-row: 2 / -1;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr;
-    grid-template-rows: auto;
     gap: 20px;
     
 }
 .bookCard {
-    padding: 20px;
+    padding: 30px;
     border: 1px solid black;
     background-color: rgb(51, 51, 51);
     border-radius: 20px;
@@ -74,34 +74,36 @@ body {
     color: white;
     border: none;
     box-shadow: 0px 0px 5px black;
-    padding: 10px;
+    padding: 20px;
     font-size: 16px;
+    margin: 20px;
 }
 /*------------------------------------------------------*/
 .inputForm{
     display: none;
 }
 .addingBooks {
-    position: absolute;
-    display: flex;
-    bottom: 20%;
-    left: 10%;
-    flex-direction: column;
+    position: fixed;
+    top: 15%;
+    left: 5%;
+    width: 20%;
+    display: grid;
+    grid-template-rows: 50px 50px 50px;
     background-color: rgb(51, 51, 51);
     border-radius: 15px;
     border: none;
     box-shadow: 0px 0px 5px black;
     padding: 20px;
-    gap: 5px;
+    gap: 20px;
 }
 .input {
     margin-top: 25%;
     margin-bottom: 25%;
     border: 1px solid black;
-    background-color: darkgray;
+    background-color: rgb(65, 65, 65);
     border-radius: 15px;
-    padding: 10px;
-    font-size: 16px;
+    padding: 25px;
+    font-size: 18px;
 }
 .readVerify {
     text-align: center;
@@ -118,15 +120,24 @@ body {
     color: white;
     font-weight: 700;
     font-size: 16px;
-
+}
+.errorMessage {
+    color: red;
+    font-size: 16px;
+    font-weight: 700;
+    display: none;
 }
 
 
 
 
 .footer {
+    grid-row: 7 / 10;
     border: 1px solid black;
-    background-color: rgb(109, 164, 212);
-
+    background-color: rgb(34, 8, 26);
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    font-weight: 700;
 }
 

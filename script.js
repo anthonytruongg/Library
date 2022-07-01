@@ -58,9 +58,14 @@ const addBookToLibrary = (ev) => {
     const readButton = document.createElement('button');
     readButton.classList.add('readButton');
     readButton.innerHTML = 'Read?';
+    readButton.addEventListener('click', readBook);
+
+
+
     const removeButton = document.createElement('button');
     removeButton.classList.add('removeButton');
     removeButton.innerHTML = 'Remove';
+    removeButton.addEventListener('click', removeBook);
 
     const bookTitle = document.createElement('h3');
     const bookAuthor = document.createElement('p');
@@ -75,7 +80,11 @@ const addBookToLibrary = (ev) => {
 
     if(newBook.title == '' || newBook.author == '' || newBook.pages == '') {
         alert("You must fill out all fields");
-    } else {
+    } else if (myLibrary.find(element => element.title == newBook.title)) {
+        const errorMessage = document.querySelector('.errorMessage');
+        errorMessage.style.display = 'contents';
+    } 
+    else {
 
         myLibrary.push(newBook);
         document.forms[0].reset();
@@ -108,43 +117,16 @@ function displayBook() {
         myLibrary[i].author;
         myLibrary[i].pages;
     }
-    // const book = document.createElement('div');
-    // book.classList.add('bookCard');
+   
+}
 
-    // const readButton = document.createElement('button');
-    // readButton.classList.add('readButton');
-    // const removeButton = document.createElement('button');
-    // removeButton.classList.add('removeButton');
-    // if(myLibrary.length == 0) {
-    //     return 0;
-    // }
-    // else {
-        // const book = document.createElement('div');
-        // book.classList.add('bookCard');
-        // const readButton = document.createElement('button');
-        // readButton.classList.add('readButton');
-        // const removeButton = document.createElement('button');
-        // removeButton.classList.add('removeButton');
-        
-        
-        // for(let i = 0; i < myLibrary.length; i++) {
-        //     const book = document.createElement('div');
-        //     book.classList.add('bookCard');
-    
-        //     const readButton = document.createElement('button');
-        //     readButton.classList.add('readButton');
-        //     const removeButton = document.createElement('button');
-        //     removeButton.classList.add('removeButton');
-    
-        //     const bookTitle = document.createElement('h3');
-        //     bookTitle.textContent = `${myLibrary[i].title}`;
-        //     const bookAuthor = document.createElement('p');
-        //     bookAuthor.textContent = `${myLibrary[i].author}`;
-        //     const bookPages = document.createElement('p');
-        //     bookPages.textContent = `${myLibrary[i].pages}`;
-    
-        //     book.append(bookTitle, bookAuthor, bookPages, readButton, removeButton);
-        //     libraryGrid.append(book);
-        // }
-    }
-    
+
+function removeBook() {
+    let book = this.parentElement;
+    book.remove();
+}
+
+function readBook() {
+    let book = this.parentElement;
+    book.classList.toggle('read');
+}
