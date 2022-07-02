@@ -42,8 +42,10 @@ body {
     align-items: center;
     justify-content: center;
     
+    
 }
 .addBook{
+    display: grid;
     background-color: rgb(51, 51, 51);
     border-radius: 15px;
     color: white;

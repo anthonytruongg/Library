@@ -25,22 +25,25 @@
         
         <div class="inputForm">
             <form class="addingBooks" >
+
                 <input class="input" type="text" id="title" placeholder="Title"
                 required maxlength="100">
                 <input class="input" type="text" id="author" placeholder="Author"
                 required maxlength="100">
-
-                <input class="input" type="text" id="pages" placeholder="Pages" 
+                <input class="input" type="number" id="pages" placeholder="Pages" 
                 required maxlength="10000">
-                <div class="errorMessage">You already have that book in your library</div>
 
                 <div class="readVerify">
+
                     <label for="read">Have you read it?</label>
                     <input class="input" type="checkbox" id="read" name="read" value="read">
+                    <div class="errorMessage">You already have that book in your library</div>
+
                 </div>
                 
                 <button class="submit" type="submit">Submit</button>
                 </form>
+
         </div>
 
         <div class="footer">Copyright © Anthony Truong</div>
